@@ -1,10 +1,10 @@
-import type { NextPage } from "next";
-import { useEffect } from "react";
-import { CookieManager } from "../utils/CookieManager";
+import type { NextPage } from 'next';
+import { useEffect } from 'react';
+import { CookieManager } from '../utils/CookieManager';
 
 const Sub2: NextPage = () => {
   useEffect(() => {
-    CookieManager.readCookie();
+    CookieManager.read1stPartyCookies();
   }, []);
 
   return <h2>Sub2</h2>;

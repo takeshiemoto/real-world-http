@@ -1,13 +1,23 @@
 export class CookieManager {
-  static async setCookie() {
-    return fetch("/api/v1/set-cookie")
-      .then((res) => res.json())
-      .catch((err) => {
-        console.error(err);
-      });
+  static async set3erPartyCookie() {
+    return fetch('http://localhost:8000/api/v1/set-cookie', {
+      mode: 'cors',
+      credentials: 'include',
+    }).then((res) => res.json());
   }
 
-  static async readCookie() {
-    return fetch("/api/v1/read-cookie");
+  static async read3rdPartyCookies() {
+    return fetch('http://localhost:8000/api/v1/read-cookies', {
+      mode: 'cors',
+      credentials: 'include',
+    });
+  }
+
+  static async set1erPartyCookie() {
+    return fetch('/api/set-cookie').then((res) => res.json());
+  }
+
+  static async read1stPartyCookies() {
+    return fetch('/api/read-cookies');
   }
 }
