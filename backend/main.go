@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"time"
 )
 
 type ResponseDto struct {
@@ -18,11 +17,8 @@ func main() {
 	http.HandleFunc("/api/v1/set-cookie", func(w http.ResponseWriter, r *http.Request) {
 
 		cookie := &http.Cookie{
-			Name:     "cheep-cheep",
-			Value:    "peep-peep",
-			Expires:  time.Time{},
-			MaxAge:   20,
-			SameSite: http.SameSiteNoneMode,
+			Name:  "cheep-cheep",
+			Value: "peep-peep",
 		}
 
 		http.SetCookie(w, cookie)
